@@ -147,7 +147,7 @@ def update_one_resource(resource_id: int, resource: schemas.ResourceUpdate, db: 
 
 
 @app.delete("/resources/{resource_id}", tags=["Resources"])
-def delete_one_order(resource_id: int, db: Session = Depends(get_db)):
+def delete_one_resource(resource_id: int, db: Session = Depends(get_db)):
     resource = resources.read_one(db, resource_id=resource_id)
     if resource is None:
         raise HTTPException(status_code=404, detail="Resource not found")

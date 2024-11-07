@@ -38,12 +38,12 @@ def update(db: Session, order_detail_id, order_detail):
     db_order_detail.update(update_data, synchronize_session=False)
     # Commit the changes to the database
     db.commit()
-    # Return the updated order record
+    # Return the updated order detail record
     return db_order_detail.first()
 
 
 def delete(db: Session, order_detail_id):
-    # Query the database for the specific order to delete
+    # Query the database for the specific order detail to delete
     db_order_detail = db.query(models.OrderDetail).filter(models.OrderDetail.id == order_detail_id)
     # Delete the database record without synchronizing the session
     db_order_detail.delete(synchronize_session=False)
